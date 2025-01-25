@@ -1,0 +1,36 @@
+// Localhost
+### Get all students
+GET http://localhost:3000/students
+
+### Get one student
+GET http://localhost:3000/students/67951b6baba7bcc3868017dd
+
+### Update a student
+PUT http://localhost:3000/students/67951b6baba7bcc3868017dd
+content-type: application/json
+
+{
+    "firstName": "Luigi",
+    "lastName": "Esti",
+    "email": "an@l.com",
+    "birthday": "march 12",
+    "address": "itaugua",
+    "assignedCourses": "1",
+    "universityName": "utah"
+}
+### Delete a student
+DELETE http://localhost:3000/students/67951b6baba7bcc3868017dd
+
+### Create a student
+POST http://localhost:3000/students
+content-type: application/json
+
+{
+    "firstName": "Ashley",
+    "lastName": "Estigarribia",
+    "email": "ash@g.com",
+    "birthday": "nov 09",
+    "address": "itaugua",
+    "assignedCourses": "2nd degree",
+    "universityName": "Kennedy"
+}
