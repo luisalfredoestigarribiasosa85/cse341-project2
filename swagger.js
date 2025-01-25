@@ -5,7 +5,7 @@ const doc = {
         title: 'Students API',
         description: 'A student API service with CRUD operations'
     },
-    host: 'localhost:3000',
+    host: 'https://cse341-project2-jbf6.onrender.com',
     schemes: ['https', 'http'],
 };
 
