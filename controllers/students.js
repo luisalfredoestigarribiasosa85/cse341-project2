@@ -3,7 +3,7 @@ const { ObjectId } = require('mongodb');
 
 const getAll = async (req, res) => {
     try {
-        const data = await mongodb.getDatabase().db().collection('students').find();
+        const data = await mongodb.getDatabase().db('students').collection('students').find();
         const students = await data.toArray();
 
         res.setHeader('Content-type', 'application/json');
@@ -22,7 +22,7 @@ const getSingle = async (req, res) => {
 
     try {
         const objectId = new ObjectId(id);
-        const data = await mongodb.getDatabase().db().collection('students').findOne({ _id: objectId });
+        const data = await mongodb.getDatabase().db('students').collection('students').findOne({ _id: objectId });
 
         if (!data) {
             return res.status(404).json({ message: 'Student not found' });
@@ -46,7 +46,7 @@ const createStudent = async (req, res) => {
         universityName: req.body.universityName
     };
     try {
-        const data = await mongodb.getDatabase().db().collection('students').insertOne(student);
+        const data = await mongodb.getDatabase().db('students').collection('students').insertOne(student);
         if (data.acknowledged) {
             res.status(201).json({ message: 'Student created successfully' });
         }
@@ -73,7 +73,7 @@ const updateStudent = (req, res) => {
     const options = { upsert: true };
 
     try {
-        const data = mongodb.getDatabase().db().collection('students').updateOne(query, update, options);
+        const data = mongodb.getDatabase().db('students').collection('students').updateOne(query, update, options);
         if (data.modifiedCount > 0) {
             res.status(200).json({ message: 'Student updated successfully' });
         }
@@ -88,7 +88,7 @@ const deleteStudent = (req, res) => {
     const query = { _id: studentId };
 
     try {
-        const data = mongodb.getDatabase().db().collection('students').deleteOne(query);
+        const data = mongodb.getDatabase().db('students').collection('students').deleteOne(query);
         if (data.deletedCount > 0) {
             res.status(200).json({ message: 'Student deleted successfully' });
         }

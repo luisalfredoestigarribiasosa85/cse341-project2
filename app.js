@@ -10,6 +10,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(bodyParser.json());
 app.use('/', require('./routes/students'));
+app.use('/', require('./routes/cars'));
 
 mongodb.initDb((err) => {
     if (err) {

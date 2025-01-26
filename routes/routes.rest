@@ -3,17 +3,17 @@
 GET http://localhost:3000/students
 
 ### Get one student
-GET http://localhost:3000/students/67951b6baba7bcc3868017dd
+GET http://localhost:3000/students/67951bb8aba7bcc3868017de
 
 ### Update a student
-PUT http://localhost:3000/students/67951b6baba7bcc3868017dd
+PUT http://localhost:3000/students/67951bb8aba7bcc3868017de
 content-type: application/json
 
 {
-    "firstName": "Luigi",
-    "lastName": "Esti",
+    "firstName": "Karina",
+    "lastName": "Toledo",
     "email": "an@l.com",
-    "birthday": "march 12",
+    "birthday": "Jan 06",
     "address": "itaugua",
     "assignedCourses": "1",
     "universityName": "utah"
@@ -26,11 +26,48 @@ POST http://localhost:3000/students
 content-type: application/json
 
 {
-    "firstName": "Ashley",
-    "lastName": "Estigarribia",
-    "email": "ash@g.com",
-    "birthday": "nov 09",
-    "address": "itaugua",
-    "assignedCourses": "2nd degree",
-    "universityName": "Kennedy"
+    "firstName": "Toyota",
+    "lastName": "Corolla",
+    "email": "2000",
+    "birthday": "gray",
+    "address": "2.2",
+    "assignedCourses": "automatic",
+    "universityName": "gasoline"
+}
+
+### Get all cars
+GET http://localhost:3000/cars
+
+### Get one Car
+GET http://localhost:3000/cars/67969dfe25591b23c41132af
+
+### Update a car
+PUT http://localhost:3000/cars/67969dfe25591b23c41132af
+content-type: application/json
+
+{
+    "brand": "Fiat",
+    "model": "500",
+    "year": "2013",
+    "color": "gray",
+    "engineSize": "2.2",
+    "transmission": "automatic",
+    "fuel": "gasoline"
+}
+
+### Delete a car
+DELETE http://localhost:3000/cars/67969b741310acc99db91274
+
+### Create a car
+POST http://localhost:3000/cars
+content-type: application/json
+
+{
+    "brand": "Honda",
+    "model": "Accord",
+    "year": "2005",
+    "color": "white",
+    "engineSize": "3.0",
+    "transmission": "automatic",
+    "fuel": "gasoline"
 }
