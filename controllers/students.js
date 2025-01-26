@@ -55,7 +55,7 @@ const createStudent = async (req, res) => {
     }
 };
 
-const updateStudent = (req, res) => {
+const updateStudent = async (req, res) => {
     const id = req.params.id;
     const studentId = new ObjectId(id);
     const student = {
@@ -73,7 +73,7 @@ const updateStudent = (req, res) => {
     const options = { upsert: true };
 
     try {
-        const data = mongodb.getDatabase().db('students').collection('students').updateOne(query, update, options);
+        const data = await mongodb.getDatabase().db('students').collection('students').updateOne(query, update, options);
         if (data.modifiedCount > 0) {
             res.status(200).json({ message: 'Student updated successfully' });
         }
@@ -82,13 +82,13 @@ const updateStudent = (req, res) => {
     }
 };
 
-const deleteStudent = (req, res) => {
+const deleteStudent = async (req, res) => {
     const id = req.params.id;
     const studentId = new ObjectId(id);
     const query = { _id: studentId };
 
     try {
-        const data = mongodb.getDatabase().db('students').collection('students').deleteOne(query);
+        const data = await mongodb.getDatabase().db('students').collection('students').deleteOne(query);
         if (data.deletedCount > 0) {
             res.status(200).json({ message: 'Student deleted successfully' });
         }
